@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Guia do Gestor · Controle de Custos do Projeto | Silvanio Gois</title>
+  <meta name="description" content="Dicas práticas para líderes de projeto controlarem custos sem firulas de consultoria. Baseado em erros e acertos reais.">
+  <meta name="author" content="Silvanio Gois">
+  
+  <meta property="og:title" content="Guia do Gestor: Controle de Custos do Projeto">
+  <meta property="og:description" content="Como líderes de verdade monitoram custos no dia a dia. Um papo reto sobre o que funciona.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.silvaniogois.com.br/guia-custos">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background-color: #f4f7fc; color: #1a2c3e; line-height: 1.5; scroll-behavior: smooth; }
+    .container { max-width: 1280px; margin: 0 auto; padding: 1.5rem; }
+    .header { background: rgb(39, 98, 141); border-radius: 2rem; padding: 1.5rem 2rem; margin-bottom: 2.5rem; color: white; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1.5rem; box-shadow: 0 12px 24px -12px rgba(0,0,0,0.25); }
+    .header-left { display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; }
+    .foto-perfil { width: 75px; height: 75px; border-radius: 50%; object-fit: cover; border: 3px solid rgba(255,255,255,0.6); background: #fff; box-shadow: 0 4px 12px rgba(0,0,0,0.2); transition: transform 0.3s ease, border 0.2s; }
+    .foto-perfil:hover { transform: scale(1.05) rotate(1deg); border-color: #ffdd99; }
+    .fallback-avatar { width: 75px; height: 75px; border-radius: 50%; background: #f0f0f0; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.8rem; color: rgb(39,98,141); border: 3px solid white; }
+    .titulo-area h1 { font-size: 1.8rem; font-weight: 700; margin-bottom: 0.25rem; }
+    .titulo-area p { font-size: 0.9rem; opacity: 0.9; }
+    .contato-whats { background: #25d366; padding: 0.7rem 1.4rem; border-radius: 40px; display: inline-flex; align-items: center; gap: 0.7rem; font-weight: 600; text-decoration: none; color: #1e2a36; transition: 0.25s; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+    .contato-whats:hover { background: #20b859; transform: scale(1.02); color: white; }
+    .card { background: white; border-radius: 1.75rem; padding: 1.8rem; margin-bottom: 2rem; box-shadow: 0 8px 18px rgba(0,0,0,0.04); transition: all 0.3s cubic-bezier(0.2,0,0,1); border: 1px solid rgba(39,98,141,0.1); }
+    .card:hover { transform: translateY(-5px); box-shadow: 0 24px 36px -12px rgba(39,98,141,0.25); border-color: rgba(39,98,141,0.3); }
+    .section-title { font-size: 1.7rem; font-weight: 700; margin-bottom: 1.25rem; border-left: 5px solid rgb(39,98,141); padding-left: 1rem; color: #0f2b3b; display: flex; align-items: center; gap: 0.6rem; }
+    .badge-stats { display: flex; flex-wrap: wrap; gap: 1rem; background: #f0f5fa; border-radius: 1.5rem; padding: 1.2rem; margin-top: 0.8rem; }
+    .stat-item { flex: 1; text-align: center; background: white; border-radius: 1.2rem; padding: 0.8rem; transition: transform 0.2s; }
+    .stat-item:hover { transform: scale(1.02); }
+    .stat-number { font-size: 2rem; font-weight: 800; color: rgb(39,98,141); }
+    .progress-bar-container { background: #e2e8f0; border-radius: 30px; height: 18px; overflow: hidden; margin: 0.5rem 0; }
+    .progress-fill { background: rgb(39,98,141); width: 0%; height: 100%; border-radius: 30px; transition: width 0.6s ease; }
+    .grid-2col { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.8rem; margin: 1.5rem 0; }
+    .pillar { background: #ffffff; border-radius: 1.5rem; padding: 1.3rem; border-left: 4px solid rgb(39,98,141); transition: all 0.25s ease; }
+    .pillar:hover { transform: translateX(6px); box-shadow: 0 12px 20px -12px rgba(39,98,141,0.2); border-left-width: 6px; }
+    .btn-dica { background: none; border: 1px solid rgb(39,98,141); border-radius: 30px; padding: 0.4rem 1rem; font-size: 0.75rem; font-weight: 600; cursor: pointer; color: rgb(39,98,141); transition: all 0.2s; margin-top: 0.75rem; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .btn-dica:hover { background: rgb(39,98,141); color: white; transform: scale(1.02); }
+    .ferramenta-check { display: flex; align-items: center; gap: 0.7rem; margin: 0.65rem 0; }
+    footer { background: #0a1c28; color: #cbd5e0; border-radius: 2rem 2rem 1rem 1rem; padding: 1.8rem 2rem; margin-top: 2.5rem; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; }
+    footer a { color: #9fc9e5; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; }
+    footer a:hover { color: white; text-decoration: underline; }
+    .highlight { background: #eef3fc; border-radius: 1rem; padding: 0.9rem 1.2rem; margin: 1rem 0; border-left: 4px solid rgb(39,98,141); }
+    .btn-topo { position: fixed; bottom: 2rem; right: 2rem; background: rgb(39,98,141); color: white; width: 52px; height: 52px; border-radius: 60px; display: flex; align-items: center; justify-content: center; cursor: pointer; opacity: 0; visibility: hidden; transition: all 0.3s; z-index: 99; border: none; font-size: 1.5rem; }
+    .btn-topo.visible { opacity: 1; visibility: visible; }
+    .btn-topo:hover { background: #1f5a7a; transform: scale(1.08); }
+    .share-buttons { display: flex; gap: 1rem; margin: 1rem 0; flex-wrap: wrap; }
+    .btn-share { background: #eef2f5; border: none; padding: 0.5rem 1rem; border-radius: 40px; font-weight: 500; cursor: pointer; transition: 0.2s; }
+    .btn-share i { margin-right: 0.4rem; }
+    .btn-share:hover { background: #dce5ec; transform: translateY(-2px); }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+    th, td { padding: 0.75rem; text-align: left; border-bottom: 1px solid #ddd; }
+    th { background: rgb(39,98,141); color: white; }
+    @media (max-width: 680px) { .container { padding: 1rem; } .header { flex-direction: column; align-items: flex-start; } .section-title { font-size: 1.4rem; } .btn-topo { width: 44px; height: 44px; } }
+    @media print { .btn-topo, .share-buttons, .contato-whats, .btn-dica { display: none; } body { background: white; } .card { box-shadow: none; border: 1px solid #ccc; } }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <div class="header-left">
+      <img src="Gestão_SG.png" class="foto-perfil" alt="Silvanio Gois" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'fallback-avatar\'><i class=\'fas fa-user-tie\'></i></div>'+this.parentElement.innerHTML; this.remove();">
+      <div class="titulo-area">
+        <h1><i class="fas fa-chart-line"></i> GESTÃO DE CUSTOS DO PROJETO</h1>
+        <p>Silvanio Gois · Da estratégia à operação, conectando, processos, pessoas e resultados</p>
+      </div>
+    </div>
+    <div>
+      <a href="https://wa.me/5513988301094?text=Olá%20Silvanio,%20gostaria%20de%20saber%20mais%20sobre%20gestão%20de%20custos!" target="_blank" class="contato-whats" aria-label="Contato WhatsApp"><i class="fab fa-whatsapp"></i> Contato</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <p><i class="fas fa-hand-peace" style="color:rgb(39,98,141); margin-right:8px;"></i> <strong>Oi, gestor(a).</strong> Se você já estourou um orçamento por não acompanhar despesas miúdas, ou confiou em uma estimativa otimista e quebrou a cara, saiba que não está sozinho. Este guia nasceu desses tropeços — não é teoria de consultoria, é o que funciona na prática com quem lida com projeto todo dia. Use como um mapa de bolso: <strong>custos sob controle = time menos ansioso e projeto mais perto da entrega</strong>.</p>
+    <div class="highlight"><i class="fas fa-lightbulb"></i> “Quanto mais cedo você encara os números, menos sustos leva no fim do mês.”</div>
+  </div>
+
+  <!-- Diagnóstico rápido - com ajuste na tautologia -->
+  <div class="card">
+    <h2 class="section-title"><i class="fas fa-chart-simple"></i> Diagnóstico rápido (baseado em projetos reais)</h2>
+    <p>Nos primeiros anos de liderança, 30% dos desvios vêm da falta de monitoramento. Com uma rotina simples, dá para reduzir isso para menos de 10%. Veja onde você se encaixa:</p>
+    <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; margin: 1.5rem 0;">
+      <div style="flex: 1; min-width: 200px; background: #e9f2f9; border-radius: 1.2rem; padding: 1rem;">
+        <h3 style="color: rgb(39,98,141); margin-bottom: 1rem;"><i class="fas fa-check-circle"></i> O que funciona (na prática)</h3>
+        <div class="stat-item" style="margin-bottom: 0.8rem;">
+          <div class="stat-number">50%</div>
+          <div><i class="fas fa-chart-line"></i> Rastreamento semanal</div>
+          <div class="progress-bar-container"><div class="progress-fill" style="width:50%"></div></div>
+          <small>Reduz desvios inesperados em cerca de 50%</small>
+        </div>
+        <div class="stat-item" style="margin-bottom: 0.8rem;">
+          <div class="stat-number">75%</div>
+          <div><i class="fas fa-microchip"></i> Usar EVM (Valor Agregado)</div>
+          <div class="progress-bar-container"><div class="progress-fill" style="width:75%"></div></div>
+          <small>Ganho enorme no controle</small>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">90%</div>
+          <div><i class="fas fa-crown"></i> Reunião rápida de 15min</div>
+          <div class="progress-bar-container"><div class="progress-fill" style="width:90%"></div></div>
+          <small>Time alinhado, poucos desvios</small>
+        </div>
+      </div>
+      <div style="flex: 1; min-width: 200px; background: #fef2e8; border-radius: 1.2rem; padding: 1rem;">
+        <h3 style="color: #c95a0f; margin-bottom: 1rem;"><i class="fas fa-exclamation-triangle"></i> O que mais prejudica</h3>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+          <span style="background:#fff0e6; padding:6px 12px; border-radius:40px;"><i class="fas fa-times-circle"></i> Planejamento vago: 5%</span>
+          <span style="background:#fff0e6; padding:6px 12px; border-radius:40px;"><i class="fas fa-question-circle"></i> Orçamento sem contingência: 10%</span>
+          <span style="background:#fff0e6; padding:6px 12px; border-radius:40px;"><i class="fas fa-calculator"></i> Estimativa “por alto”: 20%</span>
+          <span style="background:#fff0e6; padding:6px 12px; border-radius:40px;"><i class="fas fa-eye-slash"></i> Falta de monitoramento: 30%</span>
+        </div>
+        <p style="margin-top: 1rem; font-size: 0.85rem;"><i class="fas fa-chart-line"></i> Essas falhas respondem por <strong>65% dos desvios graves</strong> no começo da gestão. Boas práticas reduzem esse impacto drasticamente.</p>
+      </div>
+    </div>
+    <div class="highlight" style="margin-top: 0.5rem;">
+      <i class="fas fa-clipboard-list"></i> <strong>Autoavaliação de 1 minuto (seja honesto):</strong><br>
+      ✓ Você acompanha custos semanalmente? <br>
+      ✓ Tem uma linha de base aprovada pelo patrocinador? <br>
+      ✓ Já calculou o IDC (Valor Agregado) no último mês?<br>
+      <span style="display: inline-block; margin-top: 0.5rem; background: rgb(39,98,141); color: white; padding: 0.2rem 0.8rem; border-radius: 30px; font-size: 0.8rem;">Se respondeu “não” a alguma, comece por ali hoje mesmo. Vale a pena.</span>
+    </div>
+  </div>
+
+  <!-- 7 hábitos -->
+  <div class="card">
+    <h2 class="section-title"><i class="fas fa-cubes"></i> 7 hábitos que você pode adotar no dia a dia</h2>
+    <div class="grid-2col">
+      <div class="pillar"><h3><i class="fas fa-clipboard-list"></i> 1. Orçamento com folga</h3><p>Sempre inclua 5-10% de contingência. Reveja toda terça-feira.</p><button class="btn-dica" onclick="alert('Dica: se você não colocar reserva para material e o preço do aço subir 15%, o projeto pode ficar inviável. Previna-se.')"><i class="fas fa-lightbulb"></i> dica</button></div>
+      <div class="pillar"><h3><i class="fas fa-chart-line"></i> 2. Linha de base clara</h3><p>Desvio maior que 5%? Investigue na hora.</p><button class="btn-dica" onclick="alert('Curva S: faça uma no Excel a cada 15 dias. Compare planejado x real. Se a linha de custo ficar acima da física, é alarme.')"><i class="fas fa-chart-simple"></i> como fazer</button></div>
+      <div class="pillar"><h3><i class="fas fa-chart-pie"></i> 3. Valor Agregado (EVM)</h3><p>IDC = VA/CR. Mantenha entre 0,95 e 1,05.</p><button class="btn-dica" onclick="alert('Exemplo: Orçamento R$100k, 50% concluído (VA=R$50k). Custo real R$60k. IDC=50/60=0,83 – você está gastando muito. Ação na hora.')"><i class="fas fa-calculator"></i> exemplo</button></div>
+      <div class="pillar"><h3><i class="fas fa-users"></i> 4. Previsão de recursos</h3><p>Mapeie equipe e materiais com 4 semanas de antecedência.</p><button class="btn-dica" onclick="alert('Checklist semanal: alguém de férias? Material crítico em falta? Isso evita paralisação.')"><i class="fas fa-check-double"></i> checklist</button></div>
+      <div class="pillar"><h3><i class="fas fa-coins"></i> 5. Olho nos pequenos gastos</h3><p>Uber, café, horas extras – somam.</p><button class="btn-dica" onclick="alert('Já viu R$ 800 em pequenas despesas não rastreadas estourarem o budget? Use planilha compartilhada.')"><i class="fas fa-mobile-alt"></i> atenção</button></div>
+      <div class="pillar"><h3><i class="fas fa-shield-alt"></i> 6. Riscos financeiros</h3><p>Revisão quinzenal com o time.</p><button class="btn-dica" onclick="alert('Matriz de impacto: se um risco pode comer >5% do orçamento, tenha plano B. Exemplo: fornecedor único.')"><i class="fas fa-table"></i> matriz risco</button></div>
+      <div class="pillar"><h3><i class="fas fa-file-alt"></i> 7. Relatório enxuto</h3><p>Uma página, números-chave, ação principal.</p><button class="btn-dica" onclick="alert('Modelo: Budget consumido, EAC (orçamento no final), três variações e o que você fará até sexta.')"><i class="fas fa-download"></i> template</button></div>
+    </div>
+  </div>
+
+  <!-- Rotina do líder -->
+  <div class="card">
+    <h2 class="section-title"><i class="fas fa-calendar-alt"></i> Sua rotina (nada heroico, só consistente)</h2>
+    <div style="display:flex; flex-wrap:wrap; gap:2rem;">
+      <div><h3><i class="fas fa-check-circle"></i> Todo dia (5 min)</h3>
+        <div class="ferramenta-check"><i class="fas fa-check"></i> Olhe as despesas do dia anterior</div>
+        <div class="ferramenta-check"><i class="fas fa-check"></i> Aprove compras pequenas (até R$500)</div>
+        <div class="ferramenta-check"><i class="fas fa-check"></i> Confira horas apontadas</div>
+      </div>
+      <div><h3><i class="fas fa-chart-simple"></i> Toda semana (30 min)</h3>
+        <div class="ferramenta-check"><i class="fas fa-chart-line"></i> Compare real x baseline</div>
+        <div class="ferramenta-check"><i class="fas fa-chart-line"></i> Recalcule EAC (Estimativa no Final)</div>
+        <div class="ferramenta-check"><i class="fas fa-chart-line"></i> Reunião de 15min com o time financeiro</div>
+      </div>
+      <div><h3><i class="fas fa-exclamation-triangle"></i> Seus gatilhos de decisão</h3>
+        <div class="ferramenta-check"><i class="fas fa-bell"></i> Desvio >10% → pare e chame o time</div>
+        <div class="ferramenta-check"><i class="fas fa-bell"></i> IDC <0,9 → corte gastos não essenciais</div>
+        <div class="ferramenta-check"><i class="fas fa-bell"></i> EAC > orçamento + contingência → vá ao patrocinador</div>
+      </div>
+    </div>
+    <div class="highlight"><i class="fas fa-quote-left"></i> “Crie o hábito de olhar o extrato do projeto toda segunda de manhã, antes de qualquer reunião. Isso muda o jogo.”</div>
+  </div>
+
+  <!-- Matriz de maturidade -->
+  <div class="card">
+    <h2 class="section-title"><i class="fas fa-layer-group"></i> Em que nível você está? (todos passam por isso)</h2>
+    <table>
+      <thead><tr><th>Nível</th><th>Características</th><th>O que ajuda a sair dele</th></tr></thead>
+      <tbody>
+        <tr><td><i class="fas fa-fire"></i> Inicial</td><td>Orçamento mal definido, acompanhamento zero</td><td>Pare e monte uma linha de base simples no Excel</td></tr>
+        <tr><td><i class="fas fa-chart-line"></i> Estruturado</td><td>Rastreamento semanal, mas sem EVM</td><td>Adote IDC e reuniões quinzenais de custos</td></tr>
+        <tr><td><i class="fas fa-microchip"></i> Otimizado</td><td>Alertas automatizados, time treinado</td><td>Crie uma planilha com formatação condicional</td></tr>
+        <tr><td><i class="fas fa-crown"></i> Avançado</td><td>Previsibilidade de 90%</td><td>Cultura de custos no DNA do time</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Tomada de decisão - com ajuste no IDC > 1,1 -->
+  <div class="card">
+    <h2 class="section-title"><i class="fas fa-brain"></i> Situações que você pode enfrentar (e como resolver)</h2>
+    <div class="grid-2col">
+      <div class="pillar"><h3><i class="fas fa-chart-line"></i> Estourou 15% do orçamento</h3><p>Chame o patrocinador, revise escopo, corte benefícios não contratuais. Resolva em poucos dias.</p></div>
+      <div class="pillar"><h3><i class="fas fa-truck"></i> Fornecedor subiu preço</h3><p>Use a reserva de contingência e negocie prazo maior. Não comprometa outras frentes.</p></div>
+      <div class="pillar"><h3><i class="fas fa-clock"></i> Equipe ociosa</h3><p>Realoque para atividades críticas ou ofereça treinamento rápido. A produtividade volta.</p></div>
+      <div class="pillar"><h3><i class="fas fa-chart-line"></i> IDC > 1,1 (gastando menos que o previsto)</h3><p>Cuidado: pode significar atraso no progresso físico (pouco foi entregue para o custo baixo). Equilibre com pequenos avanços no cronograma.</p></div>
+    </div>
+  </div>
+
+  <!-- Relatório de 5 minutos -->
+  <div class="card">
+    <h2 class="section-title"><i class="fas fa-file-invoice"></i> Relatório de 5 minutos (modelo prático)</h2>
+    <div style="background:#f2f6f9; border-radius:1.2rem; padding:1rem;">
+      <p><i class="fas fa-chart-simple"></i> Orçamento total: R$ ______ | Gasto até hoje: R$ ______</p>
+      <p><i class="fas fa-chart-line"></i> Variação (orçado - real): R$ ______ (____%)</p>
+      <p><i class="fas fa-percent"></i> IDC (se tiver VA): ____ | EAC (projeção final): R$ ______</p>
+      <p><i class="fas fa-list"></i> Top 3 desvios: 1) ______ 2) ______ 3) ______</p>
+      <p><i class="fas fa-forward"></i> Uma ação para esta semana: ______</p>
+    </div>
+    <div class="highlight"><i class="fas fa-mug-hot"></i> Toda sexta-feira, antes do café, preencha isso e compartilhe com o time. Leva menos de 5 minutos.</div>
+  </div>
+
+  <!-- Botões de compartilhamento -->
+  <div class="share-buttons">
+    <button class="btn-share" id="shareLinkedin" aria-label="Compartilhar no LinkedIn"><i class="fab fa-linkedin"></i> Compartilhar no LinkedIn</button>
+    <button class="btn-share" id="shareWhatsApp" aria-label="Compartilhar no WhatsApp"><i class="fab fa-whatsapp"></i> Compartilhar WhatsApp</button>
+    <button class="btn-share" id="copyUrl" aria-label="Copiar link"><i class="fas fa-link"></i> Copiar link</button>
+    <button class="btn-share" id="printPdf" aria-label="Salvar como PDF"><i class="fas fa-print"></i> Salvar como PDF / Imprimir</button>
+  </div>
+
+  <footer>
+    <div>© 2026 Silvanio Gois - Compartilhe à vontade, só mantenha os créditos</div>
+    <div><a href="https://www.silvaniogois.com.br/" target="_blank"><i class="fas fa-globe"></i> Site do Silvanio</a> | <span style="font-size:0.8rem;"><i class="fas fa-chart-line"></i> Isso não é consultoria, é um guia prático. Cada projeto tem suas particularidades.</span></div>
+  </footer>
+</div>
+<button id="btnTopo" class="btn-topo" aria-label="Voltar ao topo"><i class="fas fa-arrow-up"></i></button>
+
+<script>
+  const btnTopo = document.getElementById('btnTopo');
+  window.addEventListener('scroll', () => { btnTopo.classList.toggle('visible', window.scrollY > 400); });
+  btnTopo.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  
+  const url = encodeURIComponent(window.location.href);
+  const title = encodeURIComponent("Guia do Gestor - Controle de Custos do Projeto (Silvanio Gois)");
+  document.getElementById('shareLinkedin').addEventListener('click', () => window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank'));
+  document.getElementById('shareWhatsApp').addEventListener('click', () => window.open(`https://api.whatsapp.com/send?text=${title}%20${url}`, '_blank'));
+  document.getElementById('copyUrl').addEventListener('click', () => { navigator.clipboard.writeText(window.location.href); alert('Link copiado! Compartilhe com outros gestores.'); });
+  document.getElementById('printPdf').addEventListener('click', () => window.print());
+</script>
+</body>
+</html>
